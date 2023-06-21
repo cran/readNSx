@@ -352,11 +352,11 @@ Electroencephalography and use systems like <code>Blackrock</code>,
 <code>Ripple</code>, etc. Support versions are <code>2.2</code>,
 <code>2.3</code>, <code>3.0</code>.</p>
 <p>To install <code>readNSx</code> from <code>CRAN</code>,</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readNSx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readNSx&quot;</span>)</span></code></pre></div>
 <p>To install development version</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readNSx&quot;</span>, <span class="at">repos =</span> <span class="fu">c</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">dipterix =</span> <span class="st">&quot;https://dipterix.r-universe.dev&quot;</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://cloud.r-project.org&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readNSx&quot;</span>, <span class="at">repos =</span> <span class="fu">c</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="at">dipterix =</span> <span class="st">&quot;https://dipterix.r-universe.dev&quot;</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://cloud.r-project.org&quot;</span>))</span></code></pre></div>
 </div>
 <div id="basic-usage" class="section level2">
 <h2>Basic Usage</h2>
@@ -365,12 +365,12 @@ Electroencephalography and use systems like <code>Blackrock</code>,
 <h3>One-time import for the first time</h3>
 <p>If you have never converted data, use the following one-time function
 call to import <code>.nev</code> and <code>.nsx</code> data:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>readNSx<span class="sc">::</span><span class="fu">import_nsp</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span> <span class="st">&quot;YAB_Datafile_001.nev&quot;</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">prefix =</span> <span class="st">&quot;YAB_Converted_001&quot;</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">exclude_events =</span> <span class="st">&quot;spike&quot;</span>, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">partition_prefix =</span> <span class="st">&quot;/part&quot;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>readNSx<span class="sc">::</span><span class="fu">import_nsp</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="at">path =</span> <span class="st">&quot;YAB_Datafile_001.nev&quot;</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">prefix =</span> <span class="st">&quot;YAB_Converted_001&quot;</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="at">exclude_events =</span> <span class="st">&quot;spike&quot;</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  <span class="at">partition_prefix =</span> <span class="st">&quot;/part&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>)</span></code></pre></div>
 <ul>
 <li><code>path</code>: path to <code>.nev</code> or any <code>nsx</code>
 file (such as <code>ns3, ns5</code>)</li>
@@ -396,72 +396,72 @@ second of stimuli relative to <code>time_origin</code>. Column
 <code>comment</code> is whatever comments sent by the task script (sent
 from <code>psychtoolbox</code> or related software that you use when
 collecting data).</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prefix &lt;- &quot;YAB_Converted_001&quot;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>nev <span class="ot">&lt;-</span> readNSx<span class="sc">::</span><span class="fu">get_nev</span>(prefix)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># `time_in_seconds` is relative to time-origin</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>nev<span class="sc">$</span>header_basic<span class="sc">$</span>time_origin</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        Year       Month   DayofWeek         Day        Hour   </span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        2022           8           5          26          15   </span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Minute      Second Millisecond </span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           4          10         156 </span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>readNSx<span class="sc">::</span><span class="fu">get_event</span>(nev, <span class="st">&quot;comment&quot;</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     timestamp packet_id char_set flag data   comment   event time_in_seconds </span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      683033     65535        0    0  255  audio-ba comment        22.76777 </span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2      753242     65535        0    0  255  video-ba comment        25.10807 </span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># prefix &lt;- &quot;YAB_Converted_001&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>nev <span class="ot">&lt;-</span> readNSx<span class="sc">::</span><span class="fu">get_nev</span>(prefix)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># `time_in_seconds` is relative to time-origin</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>nev<span class="sc">$</span>header_basic<span class="sc">$</span>time_origin</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;        Year       Month   DayofWeek         Day        Hour   </span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;        2022           8           5          26          15   </span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;      Minute      Second Millisecond </span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;           4          10         156 </span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>readNSx<span class="sc">::</span><span class="fu">get_event</span>(nev, <span class="st">&quot;comment&quot;</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt;     timestamp packet_id char_set flag data   comment   event time_in_seconds </span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; 1      683033     65535        0    0  255  audio-ba comment        22.76777 </span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt; 2      753242     65535        0    0  255  video-ba comment        25.10807 </span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt; ...</span></span></code></pre></div>
 </div>
 <div id="example-2-get-channel-information-and-data" class="section level4">
 <h4>Example 2: get channel information and data</h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prefix &lt;- &quot;YAB_Converted_001&quot;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Gather information of channel 10</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>loaded <span class="ot">&lt;-</span> readNSx<span class="sc">::</span><span class="fu">get_channel</span>(prefix, <span class="at">channel_id =</span> <span class="dv">10</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get NSx configurations, </span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>loaded<span class="sc">$</span>nsx</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Basic header information (NSx):</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Internal type: NEURALCD</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Channel count: 152</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Sample rate: 2000 Hz</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Time origin: 2022-08-26 15:04:10 158ms</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Extended header information (NSx):</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   - CC (152 x 16, channels: 1-152): type, electrode_id, electrode_label, ...</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Cache status:</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Prefix: ...</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Number of partitions: 1</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># E.g. number of partitions (i.e. unpaused continuous recordings)</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>loaded<span class="sc">$</span>nsx<span class="sc">$</span>nparts</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Get channel information</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>loaded<span class="sc">$</span>channel_info</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    type electrode_id electrode_label physical_connector connector_pin</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10   CC           10        RA10-010                  1            10</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    min_digital_value max_digital_value min_analog_value</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10            -32764             32764            -8191</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    max_analog_value units high_freq_corner high_freq_order</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10             8191    uV              300               1</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    high_freq_type low_freq_corner low_freq_order low_freq_type</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10              1         7500000              3             1</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    sample_rate_signal sample_rate_timestamp which_nsp    filename</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10               2000                 30000         3 RA10-010.h5</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Get channel data</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>channel_signal <span class="ot">&lt;-</span> loaded<span class="sc">$</span>channel_detail<span class="sc">$</span>part1<span class="sc">$</span>data; channel_signal</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Class: H5D</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Dataset: /data</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Filename: ...</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Access type: H5F_ACC_RDONLY</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Datatype: H5T_IEEE_F64LE</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Space: Type=Simple     Dims=798264     Maxdims=Inf</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Chunk: 16384</span></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the actual numbers</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>channel_signal[]</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># prefix &lt;- &quot;YAB_Converted_001&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># Gather information of channel 10</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>loaded <span class="ot">&lt;-</span> readNSx<span class="sc">::</span><span class="fu">get_channel</span>(prefix, <span class="at">channel_id =</span> <span class="dv">10</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co"># Get NSx configurations, </span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>loaded<span class="sc">$</span>nsx</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt; Basic header information (NSx):</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt;   Internal type: NEURALCD</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt;   Channel count: 152</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt;   Sample rate: 2000 Hz</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt;   Time origin: 2022-08-26 15:04:10 158ms</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt; Extended header information (NSx):</span></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">#&gt;   - CC (152 x 16, channels: 1-152): type, electrode_id, electrode_label, ...</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co">#&gt; Cache status:</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co">#&gt;   Prefix: ...</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">#&gt;   Number of partitions: 1</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="co"># E.g. number of partitions (i.e. unpaused continuous recordings)</span></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>loaded<span class="sc">$</span>nsx<span class="sc">$</span>nparts</span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="co">#&gt; 1</span></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="co"># Get channel information</span></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a>loaded<span class="sc">$</span>channel_info</span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="co">#&gt;    type electrode_id electrode_label physical_connector connector_pin</span></span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="co">#&gt; 10   CC           10        RA10-010                  1            10</span></span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="co">#&gt;    min_digital_value max_digital_value min_analog_value</span></span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="co">#&gt; 10            -32764             32764            -8191</span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a><span class="co">#&gt;    max_analog_value units high_freq_corner high_freq_order</span></span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="co">#&gt; 10             8191    uV              300               1</span></span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="co">#&gt;    high_freq_type low_freq_corner low_freq_order low_freq_type</span></span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="co">#&gt; 10              1         7500000              3             1</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt;    sample_rate_signal sample_rate_timestamp which_nsp    filename</span></span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a><span class="co">#&gt; 10               2000                 30000         3 RA10-010.h5</span></span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="co"># Get channel data</span></span>
+<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a>channel_signal <span class="ot">&lt;-</span> loaded<span class="sc">$</span>channel_detail<span class="sc">$</span>part1<span class="sc">$</span>data; channel_signal</span>
+<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a><span class="co">#&gt; Class: H5D</span></span>
+<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a><span class="co">#&gt; Dataset: /data</span></span>
+<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a><span class="co">#&gt; Filename: ...</span></span>
+<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a><span class="co">#&gt; Access type: H5F_ACC_RDONLY</span></span>
+<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a><span class="co">#&gt; Datatype: H5T_IEEE_F64LE</span></span>
+<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a><span class="co">#&gt; Space: Type=Simple     Dims=798264     Maxdims=Inf</span></span>
+<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a><span class="co">#&gt; Chunk: 16384</span></span>
+<span id="cb5-46"><a href="#cb5-46" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" tabindex="-1"></a><span class="co"># Get the actual numbers</span></span>
+<span id="cb5-48"><a href="#cb5-48" tabindex="-1"></a>channel_signal[]</span></code></pre></div>
 <p>Please use square bracket <code>channel_signal[]</code> to load the
 data into the memory.</p>
 </div>

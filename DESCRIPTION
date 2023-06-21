@@ -1,6 +1,6 @@
 Package: readNSx
 Title: Read 'Blackrock-Microsystems' Files ('NEV', 'NSx')
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Zhengjia", family = "Wang", 
       email = "dipterix.wang@gmail.com", role = c("aut", "cre"))
@@ -10,7 +10,7 @@ Description: Loads 'Blackrock' <https://blackrockneurotech.com> neural signal
 License: MPL-2.0 | file LICENSE
 Language: en-US
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports: data.table, fastmap, hdf5r, jsonlite, R6
 LinkingTo: cpp11
 Suggests: bit64, tools, testthat (>= 3.0.0), knitr, rmarkdown, spelling
@@ -21,8 +21,8 @@ URL: http://dipterix.org/readNSx/
 BugReports: https://github.com/dipterix/readNSx/issues
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-Packaged: 2023-01-31 10:26:48 UTC; dipterix
+Packaged: 2023-06-21 19:40:23 UTC; dipterix
 Author: Zhengjia Wang [aut, cre]
 Maintainer: Zhengjia Wang <dipterix.wang@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-02-01 11:00:05 UTC
+Date/Publication: 2023-06-21 20:30:02 UTC
