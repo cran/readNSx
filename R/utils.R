@@ -186,6 +186,8 @@ append_table <- function(old_tbl, new_tbl, index_column = NULL, obsolete_values 
 append_table_rds <- function(
     path, new_tbl, index_column = NULL, obsolete_values = NULL, save_tsv = TRUE) {
 
+  if(!is.data.frame(new_tbl) || nrow(new_tbl) == 0)  { return() }
+
   if(file.exists(path)) {
     old_tbl <- tryCatch({
       readRDS(path)
@@ -201,8 +203,15 @@ append_table_rds <- function(
   saveRDS(combined_tbl, file = path)
 
   if( save_tsv ) {
-    tsv_path <- sprintf("%s.tsv", gsub(".rds", "", x = path, ignore.case = TRUE))
-    utils::write.table(file = tsv_path, x = combined_tbl, row.names = FALSE, sep = "\t")
+    tsv_path <- sprintf("%s.tsv", gsub("\\.rds$", "", x = path, ignore.case = TRUE))
+    utils::write.table(
+      file = tsv_path,
+      x = combined_tbl,
+      row.names = FALSE,
+      sep = "\t",
+      append = FALSE,
+      col.names = TRUE
+    )
   }
 
   invisible(combined_tbl)
@@ -232,4 +241,46 @@ channel_filename <- function(channel_id, channel_label) {
   sel <- !endsWith(channel_label, as.character(channel_id))
   channel_label[sel] <- sprintf("%s-%03d", channel_label[sel], channel_id[sel])
   sprintf("%s.h5", channel_label)
+}
+
+str_match <- function(x, pattern, ...) {
+
+  idxs <- gregexpr(pattern = pattern, text = x, ...)
+
+  unname(sapply(seq_along(x), function(ii) {
+    s <- x[[ii]]
+    idx <- idxs[[ii]]
+    len <- attr(idx, "match.length")
+    substring(s, idx, idx + len - 1L)
+  }, USE.NAMES = FALSE, simplify = FALSE))
+
+}
+
+`%!!<-%` <- function(lhs, value) {
+  env <- parent.frame()
+  expr <- substitute(lhs)
+  isnull <- tryCatch({
+    lhs <- eval(expr, envir = env)
+    is.null(lhs)
+  }, error = function(e) {
+    return(TRUE)
+  })
+  if (isnull) { return() }
+  if(is.function(value)) {
+    value <- value(lhs)
+  }
+  eval(as.call(list(quote(`<-`), expr, value)), envir = env)
+}
+
+`%?<-%` <- function (lhs, value) {
+  env <- parent.frame()
+  lhs <- substitute(lhs)
+  isnull <- tryCatch({
+    is.null(eval(lhs, envir = env))
+  }, error = function(e) {
+    return(TRUE)
+  })
+  if (isnull) {
+    eval(as.call(list(quote(`<-`), lhs, value)), envir = env)
+  }
 }
