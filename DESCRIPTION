@@ -1,6 +1,6 @@
 Package: readNSx
 Title: Read 'Blackrock-Microsystems' Files ('NEV', 'NSx')
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: 
     person(given = "Zhengjia", family = "Wang", 
       email = "dipterix.wang@gmail.com", role = c("aut", "cre"))
@@ -21,8 +21,8 @@ URL: http://dipterix.org/readNSx/
 BugReports: https://github.com/dipterix/readNSx/issues
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-Packaged: 2024-02-17 05:48:17 UTC; dipterix
+Packaged: 2024-02-21 19:06:14 UTC; dipterix
 Author: Zhengjia Wang [aut, cre]
 Maintainer: Zhengjia Wang <dipterix.wang@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-02-17 06:00:02 UTC
+Date/Publication: 2024-02-24 16:10:02 UTC
