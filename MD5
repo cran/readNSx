@@ -1,7 +1,7 @@
-8169d8d5cc4c97c73cf7c8be5d366939 *DESCRIPTION
+0083170fa4d1400866eafaeafdfc6ed4 *DESCRIPTION
 8907b7625acb901484f55b30547e9caa *LICENSE
 25acf1cd887311447d36f460ae4bd6e6 *NAMESPACE
-45c58d5270a1ade6a7ce7850714a0444 *NEWS.md
+a32420e8665f8542495b37b952c00192 *NEWS.md
 c3a56887ae70e49c01e7fd956f228ea3 *R/bci2000.R
 182849a98680782b6745cf78ffeaf274 *R/blackrock.R
 9680dde43d61cafce63979549e90d054 *R/constants.R
@@ -16,7 +16,7 @@ a1b7ff106e86c7927080fe695623e613 *R/specifications.R
 c29fe4be625c5028f77376558027f1aa *R/utils.R
 f2ea4355705ad39894907999246a3a5b *R/validators.R
 c2d7c9324cb31d35d67390142a645fcd *README.md
-3407d8f269dcbef83304d1ef006d5169 *build/vignette.rds
+3cd3248422b533001d0d07fe710cd2f6 *build/vignette.rds
 8ef7c21878b40226ff8634111a64df90 *inst/WORDLIST
 0405360dff4b69ab8d290dbc2e7c962d *inst/doc/read-nev-nsx-data.R
 c6fa9b7f7d0fcc7563a62518dad05406 *inst/doc/read-nev-nsx-data.Rmd
@@ -45,8 +45,8 @@ cd0a11bd56552ee21115f69ea42ede2e *man/get_specification.Rd
 db381533f0a9323ff58243f5dc8de4b2 *man/read_bci2000.Rd
 a4052d11e41a99667912af4702c2974c *src/common.h
 74fcfbb68dbf099eb5674f11c7f201b6 *src/cpp11.cpp
-4630f3105ac24b87ef4a84e4c1429b62 *src/rawToSEXP.cpp
-3bd6b5ec334cfda3e974725140214d9b *src/readBCI.h
+eca8ab6ae1c74acae10406ca89c7b348 *src/rawToSEXP.cpp
+c7b718913e5aa7ee7992bff64608be76 *src/readBCI.h
 0574e6f0e77f58533f6c535927dd76d0 *src/readBCI2R.cpp
 62ae50e90d353427f48b756cfe94d6b4 *src/readNSxDataPacket.cpp
 0622a97a2aaa3c342f09636052c2d7f5 *tests/spelling.R
