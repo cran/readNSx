@@ -1,9 +1,11 @@
 Package: readNSx
 Title: Read 'Blackrock-Microsystems' Files ('NEV', 'NSx')
-Version: 0.0.5
+Version: 0.0.6
 Authors@R: 
+    c(
     person(given = "Zhengjia", family = "Wang", 
-      email = "dipterix.wang@gmail.com", role = c("aut", "cre"))
+        email = "dipterix.wang@gmail.com", role = c("aut", "cre"))
+    )
 Description: Loads 'Blackrock' <https://blackrockneurotech.com> neural signal 
     data files into the memory, provides utility tools to extract the data into 
     common formats such as plain-text 'tsv' and 'HDF5'.
@@ -21,8 +23,8 @@ URL: http://dipterix.org/readNSx/
 BugReports: https://github.com/dipterix/readNSx/issues
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-Packaged: 2024-09-03 21:08:16 UTC; dipterix
+Packaged: 2025-10-23 19:12:35 UTC; dipterix
 Author: Zhengjia Wang [aut, cre]
 Maintainer: Zhengjia Wang <dipterix.wang@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-09-03 21:30:02 UTC
+Date/Publication: 2025-10-24 05:20:02 UTC
